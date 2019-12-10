@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+console.log('biu-cli ----- 666')
+
+const program = require('commander')
+const { init } = require('../lib/api')
+
+program.version('biu-cli version: ' + require('../package').version) // 版本
+
+// 自定义命令
+program
+    .command('init <name>')
+    .description('init project')
+    .action(init)
+    // .action(name => {
+    //     console.log('init project: ' + name)
+    // })
+
+program.parse(process.argv)
